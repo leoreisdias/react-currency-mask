@@ -103,7 +103,7 @@ const MyComponent = () => {
 
 ## License
 
-excel-ent is [MIT licensed](LICENSE).
+react-input-currency is [MIT licensed](LICENSE).
 
 ---
 
