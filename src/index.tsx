@@ -92,3 +92,5 @@ export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyControlProp
     });
   },
 );
+
+export { ICurrencyControlProps } from './types/CurrencyControl';
