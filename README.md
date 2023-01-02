@@ -1,7 +1,7 @@
 # React Input Currency
 
-[![NPM](https://img.shields.io/npm/v/excel-ent)](https://www.npmjs.com/package/excel-ent)
-[![npm](https://img.shields.io/npm/l/excel-ent)](https://github.com/leoreisdias/excel-ent/blob/main/LICENSE)
+[![NPM](https://img.shields.io/npm/v/react-currency-control)](https://www.npmjs.com/package/react-currency-control)
+[![npm](https://img.shields.io/npm/l/react-currency-control)](https://github.com/leoreisdias/react-currency-control/blob/main/LICENSE)
 
 ## Description
 
