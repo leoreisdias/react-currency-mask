@@ -97,7 +97,7 @@ const MyComponent = () => {
 
 ### Example output
 
-...
+![Output example](https://i.imgur.com/RDxjHaf.png)
 
 ---
 
