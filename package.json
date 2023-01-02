@@ -15,7 +15,7 @@
     "prepublishOnly": "yarn lint",
     "preversion": "yarn lint",
     "version": "yarn format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push origin main && git push origin main --tags"
   },
   "dependencies": {
     "react": "^18.0.0"
