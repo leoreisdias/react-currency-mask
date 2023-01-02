@@ -1,4 +1,4 @@
-# React Input Currency
+# React Currency Control
 
 [![NPM](https://img.shields.io/npm/v/react-currency-control)](https://www.npmjs.com/package/react-currency-control)
 [![npm](https://img.shields.io/npm/l/react-currency-control)](https://github.com/leoreisdias/react-currency-control/blob/main/LICENSE)
