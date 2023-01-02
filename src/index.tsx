@@ -1,37 +1,11 @@
 /* eslint-disable react/display-name */
-import { ChangeEvent, FocusEvent, KeyboardEvent, ReactElement } from 'react';
+import { ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
 import { useState, useEffect, forwardRef } from 'react';
 
 import { maskValues, normalizeValue } from './functions/helpers';
+import { ICurrencyControlProps } from './types/CurrencyControl';
 
-interface ICurrencyProps {
-  children: (props: any) => ReactElement;
-  defaultValue?: number;
-  value?: number;
-  max?: number;
-  currency?: string;
-  shouldCutSymbol?: boolean;
-  autoSelect?: boolean;
-  autoReset?: boolean;
-  onChangeValue: (
-    event: ChangeEvent<HTMLInputElement>,
-    originalValue: number | string,
-    maskedValue: number | string,
-  ) => void;
-  onBlur?: (
-    event: FocusEvent<HTMLInputElement, Element>,
-    originalValue: number | string,
-    maskedValue: number | string,
-  ) => void;
-  onFocus?: (
-    event: FocusEvent<HTMLInputElement, Element>,
-    originalValue: number | string,
-    maskedValue: number | string,
-  ) => void;
-  onKeyPress?: (event: KeyboardEvent<HTMLInputElement>, originalValue: number | string, maskedValue: string) => void;
-}
-
-export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyProps>(
+export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyControlProps>(
   (
     {
       children,
