@@ -1,7 +1,7 @@
 {
-  "name": "react-input-currency",
+  "name": "react-currency-control",
   "version": "1.0.0",
-  "description": "React Input Component for currencies mask",
+  "description": "React Input Control to handle and apply currency masks in your own inputs",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Leonardo Dias",
@@ -39,10 +39,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leoreisdias/ReactInputCurrency.git"
+    "url": "git+https://github.com/leoreisdias/react-currency-control.git"
   },
-  "homepage": "https://github.com/leoreisdias/ReactInputCurrency#readme",
+  "homepage": "https://github.com/leoreisdias/react-currency-control#readme",
   "bugs": {
-    "url": "https://github.com/leoreisdias/ReactInputCurrency/issues"
+    "url": "https://github.com/leoreisdias/react-currency-control/issues"
   }
 }

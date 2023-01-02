@@ -5,19 +5,19 @@
 
 ## Description
 
-[react-input-currency](https://github.com/leoreisdias/react-input-currency.git) is a lib to help you mask currencies while the user types the values. _Supports BRL currency_
+[react-currency-control](https://github.com/leoreisdias/react-currency-control.git) is a lib to help you mask currencies while the user types the values. _Supports BRL currency_
 
 ## Installation
 
 ```bash
-$ yarn add react-input-currency
+$ yarn add react-currency-control
 
 # or with npm
 
-$ npm install react-input-currency --save
+$ npm install react-currency-control --save
 ```
 
-## Using react-input-currency
+## Using react-currency-control
 
 First, you need to import the <b>CurrencyControl</b> component. It receives any kind of input in order to give you control of styling and other third party libs.<br />
 For example, you can pass inside the CurrencyControl a Chakra UI Input, MUI Input, your own styled input and so on.
@@ -80,7 +80,7 @@ Optional, if you want to reset the value after blur.
 ### Example
 
 ```js
-import { CurrencyControl } from 'react-currency-input';
+import { CurrencyControl } from 'react-currency-control';
 
 const MyComponent = () => {
   return (
@@ -103,7 +103,7 @@ const MyComponent = () => {
 
 ## License
 
-react-input-currency is [MIT licensed](LICENSE).
+react-currency-control is [MIT licensed](LICENSE).
 
 ---
 
