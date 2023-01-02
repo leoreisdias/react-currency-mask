@@ -1,0 +1,1 @@
+export const MAXIMUM_FRACTION_DIGITS = 2;
