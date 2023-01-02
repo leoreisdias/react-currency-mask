@@ -1,6 +1,6 @@
 {
   "name": "react-currency-control",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React Input Control to handle and apply currency masks in your own inputs",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
