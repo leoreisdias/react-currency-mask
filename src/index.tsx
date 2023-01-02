@@ -75,7 +75,7 @@ export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyControlProp
       onKeyPress && onKeyPress(event, event.key, event.key);
 
     useEffect(() => {
-      const currentValue = value || defaultValue || 0;
+      const currentValue = value || defaultValue || undefined;
       const [, maskedValue] = maskValues(currentValue, currency, shouldCutSymbol);
 
       setMaskedValue(maskedValue);

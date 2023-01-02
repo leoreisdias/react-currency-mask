@@ -29,7 +29,13 @@ export const normalizeValue = (number: string | number) => {
   return clearNumber(safeNumber) / 10 ** MAXIMUM_FRACTION_DIGITS;
 };
 
-export const maskValues = (inputFieldValue: string | number, currency: string, shouldCutSymbol: boolean) => {
+export const maskValues = (
+  inputFieldValue: string | number | undefined,
+  currency: string,
+  shouldCutSymbol: boolean,
+) => {
+  if (!inputFieldValue) return [0, ''];
+
   const value = normalizeValue(inputFieldValue);
   const maskedValue = formatCurrency(value, currency, shouldCutSymbol);
 
