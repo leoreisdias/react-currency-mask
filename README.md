@@ -19,18 +19,18 @@ $ npm install react-currency-mask --save
 
 ## Using react-currency-mask
 
-First, you need to import the <b>CurrencyMask</b> component. It receives any kind of input in order to give you control of styling and other third party libs.<br />
-For example, you can pass inside the CurrencyMask a Chakra UI Input, MUI Input, your own styled input and so on.
+First, you need to import the <b>CurrencyInput</b> component. It receives any kind of input in order to give you control of styling and other third party libs.<br />
+For example, you can pass inside the CurrencyInput a Chakra UI Input, MUI Input, your own styled input and so on.
 
 - It also supports usage along <b>React Hook Form</b>;
   - React Hook Form Controller is recommended for better control (example below).
 
 ---
 
-## CurrencyMask Component
+## CurrencyInput Component
 
 ```js
-<CurrencyMask
+<CurrencyInput
   onChangeValue={(event, originalValue, maskedValue) => {
     console.log(event, originalValue, maskedValue);
   }}
@@ -82,11 +82,11 @@ Optional, if you want to reset the value after blur.
 ### Default Input
 
 ```js
-import { CurrencyMask } from 'react-currency-mask';
+import { CurrencyInput } from 'react-currency-mask';
 
 const MyComponent = () => {
   return (
-    <CurrencyMask
+    <CurrencyInput
       onChangeValue={(event, originalValue, maskedValue) => {
         console.log(event, originalValue, maskedValue);
       }}
@@ -102,27 +102,22 @@ const MyComponent = () => {
 ### Using a custom input (Third Party or your own)
 
 ```js
-import { CurrencyMask } from 'react-currency-mask';
-import { TextField } from "@mui/material";
+import { CurrencyInput } from 'react-currency-mask';
+import { TextField } from '@mui/material';
 
 const MyComponent = () => {
   return (
-    <CurrencyMask
+    <CurrencyInput
       onChangeValue={(event, originalValue, maskedValue) => {
         console.log(event, originalValue, maskedValue);
       }}
-      InputElement={
-        <TextField
-          label="Custom Input"
-          size="small"      
-        />
-      }
+      InputElement={<TextField label="Custom Input" size="small" />}
     />
   );
 };
 ```
 
-<small style="color: #c08d78;"><u>*This example uses a MUI TextField</u></small>
+<small style="color: #c08d78;"><u>\*This example uses a MUI TextField</u></small>
 
 **Example output**
 
@@ -131,36 +126,35 @@ const MyComponent = () => {
 ### Integrating with React-Hook-Form Controller
 
 ```js
-import { CurrencyMask } from 'react-currency-mask';
-import { Controller, useFormContext } from "react-hook-form";
+import { CurrencyInput } from 'react-currency-mask';
+import { Controller, useFormContext } from 'react-hook-form';
 
 type MyComponentProps = {
-  name: string;
-}
+  name: string,
+};
 
 const MyComponent = ({ name }: MyComponentProps) => {
-  const { control } = useFormContext()
+  const { control } = useFormContext();
 
   return (
     <Controller
       name={name}
       control={control}
       render={({ field }) => (
-        <CurrencyControl
+        <CurrencyInput
           value={field.value}
           onChangeValue={(_, value) => {
             field.onChange(value);
           }}
-          InputElement={
-            <MyCustomInput />
-          }
+          InputElement={<MyCustomInput />}
         />
       )}
     />
   );
 };
 ```
-<small style="color: #c08d78;"><u>*Input Element is optional, use it just if you want a custom input</u></small>
+
+<small style="color: #c08d78;"><u>\*Input Element is optional, use it just if you want a custom input</u></small>
 
 ---
 
