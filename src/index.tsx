@@ -6,7 +6,7 @@ import { useState, useEffect, forwardRef } from 'react';
 import { maskValues, normalizeValue } from './functions/helpers';
 import { ICurrencyMaskProps } from './types/CurrencyMask';
 
-export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
+export const CurrencyMask = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
   (
     {
       InputElement,
