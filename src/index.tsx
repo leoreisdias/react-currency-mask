@@ -107,3 +107,5 @@ export const CurrencyMask = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
     });
   },
 );
+
+export { ICurrencyMaskProps } from './types/CurrencyMask';
