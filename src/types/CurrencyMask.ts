@@ -1,12 +1,12 @@
 import { ChangeEvent, FocusEvent, KeyboardEvent, ReactElement } from 'react';
 
-export interface ICurrencyControlProps {
+export interface ICurrencyMaskProps {
   children: (props: any) => ReactElement;
   defaultValue?: number;
   value?: number;
   max?: number;
   currency?: string;
-  shouldCutSymbol?: boolean;
+  hideSymbol?: boolean;
   autoSelect?: boolean;
   autoReset?: boolean;
   onChangeValue: (

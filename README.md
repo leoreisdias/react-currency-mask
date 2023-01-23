@@ -1,51 +1,49 @@
-# React Currency Control
+# React Currency Mask
 
-[![NPM](https://img.shields.io/npm/v/react-currency-control)](https://www.npmjs.com/package/react-currency-control)
-[![npm](https://img.shields.io/npm/l/react-currency-control)](https://github.com/leoreisdias/react-currency-control/blob/main/LICENSE)
+[![NPM](https://img.shields.io/npm/v/react-currency-mask)](https://www.npmjs.com/package/react-currency-mask)
+[![npm](https://img.shields.io/npm/l/react-currency-mask)](https://github.com/leoreisdias/react-currency-mask/blob/main/LICENSE)
 
 ## Description
 
-[react-currency-control](https://github.com/leoreisdias/react-currency-control.git) is a lib to help you mask currencies while the user types the values. _Supports BRL currency_
+[react-currency-mask](https://github.com/leoreisdias/react-currency-mask.git) is a lib to help you mask currencies while the user types the values. _Supports BRL currency_
 
 ## Installation
 
 ```bash
-$ yarn add react-currency-control
+$ yarn add react-currency-mask
 
 # or with npm
 
-$ npm install react-currency-control --save
+$ npm install react-currency-mask --save
 ```
 
-## Using react-currency-control
+## Using react-currency-mask
 
-First, you need to import the <b>CurrencyControl</b> component. It receives any kind of input in order to give you control of styling and other third party libs.<br />
-For example, you can pass inside the CurrencyControl a Chakra UI Input, MUI Input, your own styled input and so on.
+First, you need to import the <b>CurrencyMask</b> component. It receives any kind of input in order to give you control of styling and other third party libs.<br />
+For example, you can pass inside the CurrencyMask a Chakra UI Input, MUI Input, your own styled input and so on.
 
 - It also supports usage along <b>React Hook Form</b>;
-  - React Hook Form Controller is recommended for better control;
+  - React Hook Form Controller is recommended for better control (example below).
 
 ---
 
-### CurrencyControl
+## CurrencyMask Component
 
 ```js
-<CurrencyControl
+<CurrencyMask
   onChangeValue={(event, originalValue, maskedValue) => {
     console.log(event, originalValue, maskedValue);
   }}
->
-  (props) => <input {...props} />
-</CurrencyControl>
+/>
 ```
 
-#### Parameters
-
-`children`
-Required, must be a function returning a Input Element. You must pass the **props** of the function to your Input Element.
+## Parameters
 
 `onChangeValue`
 Required, function that triggers after the value of input changes. It returns the Input Event, original value and masked value.
+
+`InputElement`
+Optional, must be a React Element. It can be from a Third Party library (such as MUI, Chakra UI, or any other...) or your own custom Input.
 
 `onBlur`
 Optional, function that triggers after blur. It returns the Input Event, original value and masked value.
@@ -68,7 +66,7 @@ Optional, max value permitted.
 `currency`
 Optional, currency you want to use as mask. Default is BRL.
 
-`shouldCutSymbol`
+`hideSymbol`
 Optional, boolean to control the currency symbol display.
 
 `autoSelect`
@@ -77,33 +75,98 @@ Optional, if you want to select the value of input when clicking it.
 `autoReset`
 Optional, if you want to reset the value after blur.
 
-### Example
+---
+
+## Examples
+
+### Default Input
 
 ```js
-import { CurrencyControl } from 'react-currency-control';
+import { CurrencyMask } from 'react-currency-mask';
 
 const MyComponent = () => {
   return (
-    <CurrencyControl
+    <CurrencyMask
       onChangeValue={(event, originalValue, maskedValue) => {
         console.log(event, originalValue, maskedValue);
       }}
-    >
-      (props) => <input {...props} />
-    </CurrencyControl>
+    />
   );
 };
 ```
 
-### Example output
+**Example output**
 
-![Output example](https://i.imgur.com/RDxjHaf.png)
+![Output example](https://i.imgur.com/oajugCZ.png)
+
+### Using a custom input (Third Party or your own)
+
+```js
+import { CurrencyMask } from 'react-currency-mask';
+import { TextField } from "@mui/material";
+
+const MyComponent = () => {
+  return (
+    <CurrencyMask
+      onChangeValue={(event, originalValue, maskedValue) => {
+        console.log(event, originalValue, maskedValue);
+      }}
+      InputElement={
+        <TextField
+          label="Custom Input"
+          size="small"      
+        />
+      }
+    />
+  );
+};
+```
+
+<small style="color: #c08d78;"><u>*This example uses a MUI TextField</u></small>
+
+**Example output**
+
+![Output example](https://i.imgur.com/YriLExI.png)
+
+### Integrating with React-Hook-Form Controller
+
+```js
+import { CurrencyMask } from 'react-currency-mask';
+import { Controller, useFormContext } from "react-hook-form";
+
+type MyComponentProps = {
+  name: string;
+}
+
+const MyComponent = ({ name }: MyComponentProps) => {
+  const { control } = useFormContext()
+
+  return (
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <CurrencyControl
+          value={field.value}
+          onChangeValue={(_, value) => {
+            field.onChange(value);
+          }}
+          InputElement={
+            <MyCustomInput />
+          }
+        />
+      )}
+    />
+  );
+};
+```
+<small style="color: #c08d78;"><u>*Input Element is optional, use it just if you want a custom input</u></small>
 
 ---
 
 ## License
 
-react-currency-control is [MIT licensed](LICENSE).
+react-currency-mask is [MIT licensed](LICENSE).
 
 ---
 

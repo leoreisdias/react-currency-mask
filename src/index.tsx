@@ -3,15 +3,15 @@ import { ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
 import { useState, useEffect, forwardRef } from 'react';
 
 import { maskValues, normalizeValue } from './functions/helpers';
-import { ICurrencyControlProps } from './types/CurrencyControl';
+import { ICurrencyMaskProps } from './types/CurrencyMask';
 
-export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyControlProps>(
+export const CurrencyMask = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
   (
     {
       children,
       value,
       defaultValue,
-      shouldCutSymbol = false,
+      hideSymbol = false,
       currency = 'BRL',
       max,
       autoSelect,
@@ -27,7 +27,7 @@ export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyControlProp
     const [maskedValue, setMaskedValue] = useState<number | string>('0');
 
     const updateValues = (originalValue: string | number) => {
-      const [calculatedValue, calculatedMaskedValue] = maskValues(originalValue, currency, shouldCutSymbol);
+      const [calculatedValue, calculatedMaskedValue] = maskValues(originalValue, currency, hideSymbol);
 
       if (!max || calculatedValue <= max) {
         setMaskedValue(calculatedMaskedValue);
@@ -51,7 +51,7 @@ export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyControlProp
       const [originalValue, maskedValue] = updateValues(event.target.value);
 
       if (autoReset) {
-        maskValues(0, currency, shouldCutSymbol);
+        maskValues(0, currency, hideSymbol);
       }
 
       if (maskedValue && onBlur) {
@@ -76,10 +76,10 @@ export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyControlProp
 
     useEffect(() => {
       const currentValue = value || defaultValue || undefined;
-      const [, maskedValue] = maskValues(currentValue, currency, shouldCutSymbol);
+      const [, maskedValue] = maskValues(currentValue, currency, hideSymbol);
 
       setMaskedValue(maskedValue);
-    }, [currency, defaultValue, shouldCutSymbol, value]);
+    }, [currency, defaultValue, hideSymbol, value]);
 
     return children({
       ...otherProps,
@@ -93,4 +93,4 @@ export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyControlProp
   },
 );
 
-export { ICurrencyControlProps } from './types/CurrencyControl';
+export { ICurrencyMaskProps } from './types/CurrencyMask';
