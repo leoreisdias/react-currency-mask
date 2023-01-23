@@ -1,14 +1,15 @@
 /* eslint-disable react/display-name */
-import { ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
+
+import { ChangeEvent, cloneElement, FocusEvent, KeyboardEvent } from 'react';
 import { useState, useEffect, forwardRef } from 'react';
 
 import { maskValues, normalizeValue } from './functions/helpers';
 import { ICurrencyMaskProps } from './types/CurrencyMask';
 
-export const CurrencyMask = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
+export const CurrencyControl = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
   (
     {
-      children,
+      InputElement,
       value,
       defaultValue,
       hideSymbol = false,
@@ -81,7 +82,21 @@ export const CurrencyMask = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
       setMaskedValue(maskedValue);
     }, [currency, defaultValue, hideSymbol, value]);
 
-    return children({
+    if (!InputElement) {
+      return (
+        <input
+          {...otherProps}
+          ref={ref}
+          value={maskedValue}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          onFocus={handleFocus}
+          onKeyUp={handleKeyUp}
+        />
+      );
+    }
+
+    return cloneElement(InputElement, {
       ...otherProps,
       ref,
       value: maskedValue,
@@ -92,5 +107,3 @@ export const CurrencyMask = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
     });
   },
 );
-
-export { ICurrencyMaskProps } from './types/CurrencyMask';

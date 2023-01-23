@@ -1,7 +1,7 @@
 import { ChangeEvent, FocusEvent, KeyboardEvent, ReactElement } from 'react';
 
 export interface ICurrencyMaskProps {
-  children: (props: any) => ReactElement;
+  InputElement?: ReactElement;
   defaultValue?: number;
   value?: number;
   max?: number;
