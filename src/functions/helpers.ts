@@ -30,6 +30,7 @@ export const normalizeValue = (number: string | number) => {
 };
 
 export const maskValues = (
+  locale: string,
   inputFieldValue: string | number | undefined,
   currency: string,
   shouldCutSymbol: boolean,
@@ -37,7 +38,7 @@ export const maskValues = (
   if (!inputFieldValue) return [0, ''];
 
   const value = normalizeValue(inputFieldValue);
-  const maskedValue = formatCurrency(value, currency, shouldCutSymbol);
+  const maskedValue = formatCurrency(locale, value, currency, shouldCutSymbol);
 
   return [value, maskedValue];
 };

@@ -1,7 +1,7 @@
 const SYMBOL_LENGTH = 3;
 
-export const formatCurrency = (value: number, currencyType = 'BRL', hideSymbol = false) => {
-  const formatter = new Intl.NumberFormat('pt-BR', {
+export const formatCurrency = (locale: string = 'pt-BR', value: number, currencyType = 'BRL', hideSymbol = false) => {
+  const formatter = new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: currencyType,
     currencyDisplay: 'symbol',
