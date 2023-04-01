@@ -6,6 +6,7 @@ export interface ICurrencyMaskProps {
   value?: number | string;
   max?: number;
   currency?: string;
+  locale?: string;
   hideSymbol?: boolean;
   autoSelect?: boolean;
   autoReset?: boolean;
