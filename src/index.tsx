@@ -14,6 +14,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
       defaultValue,
       hideSymbol = false,
       currency = 'BRL',
+      locale = 'pt-BR',
       max,
       autoSelect,
       autoReset,
@@ -28,7 +29,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
     const [maskedValue, setMaskedValue] = useState<number | string>('0');
 
     const updateValues = (originalValue: string | number) => {
-      const [calculatedValue, calculatedMaskedValue] = maskValues(originalValue, currency, hideSymbol);
+      const [calculatedValue, calculatedMaskedValue] = maskValues(locale, originalValue, currency, hideSymbol);
 
       if (!max || calculatedValue <= max) {
         setMaskedValue(calculatedMaskedValue);
@@ -52,7 +53,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
       const [originalValue, maskedValue] = updateValues(event.target.value);
 
       if (autoReset) {
-        maskValues(0, currency, hideSymbol);
+        maskValues(locale, 0, currency, hideSymbol);
       }
 
       if (maskedValue && onBlur) {
@@ -77,7 +78,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
 
     useEffect(() => {
       const currentValue = value || defaultValue || undefined;
-      const [, maskedValue] = maskValues(currentValue, currency, hideSymbol);
+      const [, maskedValue] = maskValues(locale, currentValue, currency, hideSymbol);
 
       setMaskedValue(maskedValue);
     }, [currency, defaultValue, hideSymbol, value]);
