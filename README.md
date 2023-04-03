@@ -117,7 +117,7 @@ const MyComponent = () => {
 };
 ```
 
-<small style="color: #c08d78;"><u>\*This example uses a MUI TextField</u></small>
+<u>\*This example uses a MUI TextField</u>
 
 **Example output**
 
@@ -154,7 +154,7 @@ const MyComponent = ({ name }: MyComponentProps) => {
 };
 ```
 
-<small style="color: #c08d78;"><u>\*Input Element is optional, use it just if you want a custom input</u></small>
+<u>\*Input Element is optional, use it just if you want a custom input</u>
 
 ---
 
