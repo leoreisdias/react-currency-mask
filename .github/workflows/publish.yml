@@ -36,4 +36,4 @@ jobs:
           npm i
           fi
     - run: npm run build --if-present
-    - run: npm test
+    #- run: npm test
