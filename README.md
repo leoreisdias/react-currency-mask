@@ -66,6 +66,9 @@ Optional, max value permitted.
 `currency`
 Optional, currency you want to use as mask. Default is BRL.
 
+`locale`
+Optional, locale you want to format currency. Default is `pt-BR`.
+
 `hideSymbol`
 Optional, boolean to control the currency symbol display.
 
