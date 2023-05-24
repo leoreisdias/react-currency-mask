@@ -34,7 +34,7 @@ export const maskValues = (
   inputFieldValue: string | number | undefined,
   currency: string,
   shouldCutSymbol: boolean,
-) => {
+): [number, string] => {
   if (!inputFieldValue) return [0, ''];
 
   const value = normalizeValue(inputFieldValue);
