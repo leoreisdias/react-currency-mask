@@ -43,10 +43,8 @@ export const CurrencyInput = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
       event.preventDefault();
 
       const [originalValue, maskedValue] = updateValues(event.target.value);
-
-      if (maskedValue) {
-        onChangeValue(event, originalValue, maskedValue);
-      }
+      
+      onChangeValue(event, originalValue, maskedValue);
     };
 
     const handleBlur = (event: FocusEvent<HTMLInputElement, Element>) => {
