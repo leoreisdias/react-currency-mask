@@ -54,7 +54,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
         maskValues(locale, 0, currency, hideSymbol);
       }
 
-      if (maskedValue && onBlur) {
+      if (onBlur) {
         onBlur(event, originalValue, maskedValue);
       }
     };
