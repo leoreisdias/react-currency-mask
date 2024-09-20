@@ -26,7 +26,18 @@ export const CurrencyInput = forwardRef<HTMLInputElement, ICurrencyMaskProps>(
     },
     ref,
   ) => {
-    const [maskedValue, setMaskedValue] = useState<number | string>('0');
+    const [maskedValue, setMaskedValue] = useState<number | string>(() => {
+      if (!value) return '0'
+  
+      const [, calculatedMaskedValue] = maskValues(
+        locale,
+        value,
+        currency,
+        hideSymbol,
+      )
+  
+      return calculatedMaskedValue
+    })
 
     const updateValues = (originalValue: string | number) => {
       const [calculatedValue, calculatedMaskedValue] = maskValues(locale, originalValue, currency, hideSymbol);
