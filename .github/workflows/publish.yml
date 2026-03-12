@@ -51,7 +51,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18.x'
-        registry-url: 'https://registry.npmjs.org'
         cache: 'npm'
     - run: |
           if [ -e yarn.lock ]; then
@@ -64,4 +63,5 @@ jobs:
     - run: npm run semantic-release
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        NPM_CONFIG_PROVENANCE: true
     
