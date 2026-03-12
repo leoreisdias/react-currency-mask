@@ -1,6 +1,10 @@
-import { ChangeEvent, FocusEvent, KeyboardEvent, ReactElement } from 'react';
+import { ChangeEvent, FocusEvent, KeyboardEvent, ReactElement, InputHTMLAttributes } from 'react';
 
-export interface ICurrencyMaskProps {
+export interface ICurrencyMaskProps
+  extends Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'defaultValue' | 'max' | 'onChange' | 'onBlur' | 'onFocus' | 'onKeyPress'
+  > {
   InputElement?: ReactElement;
   defaultValue?: number | string;
   value?: number | string;
