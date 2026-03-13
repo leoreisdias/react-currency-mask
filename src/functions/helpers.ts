@@ -7,7 +7,10 @@ export const clearNumber = (number: any) => {
   }
 
   // strips everything that is not a number (positive or negative)
-  return Number(number.toString().replace(/[^0-9-]/g, ''));
+  let str = number.toString().replace(/[^0-9-]/g, '');
+  const isNegative = str.startsWith('-');
+  str = str.replace(/-/g, '');
+  return Number((isNegative ? '-' : '') + str);
 };
 
 export const normalizeValue = (number: string | number) => {
